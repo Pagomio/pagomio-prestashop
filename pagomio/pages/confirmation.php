@@ -31,9 +31,9 @@ require_once dirname(__FILE__).'/../pagomio-sdk-php/Requests/library/Requests.ph
 
 Requests::register_autoloader();
 $pagomioClient = new Pagomio\Pagomio(Configuration::get('PAGOMIO_CLIENT_ID'),Configuration::get('PAGOMIO_SECRET_ID'),Configuration::get('PAGOMIO_TEST')=='false'?false:true);
-if(isset($_GET['reference']))
+if(isset($_REQUEST['reference']))
 {
-	$response = $pagomioClient->getRequestPayment($_GET['reference']);
+	$response = $pagomioClient->getRequestPayment($_REQUEST['reference']);
 }
 else {
 	$response = $pagomioClient->getRequestPayment();
